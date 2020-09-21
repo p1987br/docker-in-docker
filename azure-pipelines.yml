@@ -17,10 +17,7 @@ steps:
   inputs:
     command: 'build'
     Dockerfile: '**/Dockerfile'
-
-- script: |
-    /usr/bin/docker build -f /home/vsts/work/1/s/Dockerfile
-  displayName: 'Run a docker'  
+    arguments: '--privileged'
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
