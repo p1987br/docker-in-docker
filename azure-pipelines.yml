@@ -19,13 +19,14 @@ steps:
     containerRegistry: 'quayServiceConnection'
     repository: 'p1987br/build-image'
     Dockerfile: '**/Dockerfile'
+    tags: latest
 
 - script: |
     docker images
   displayName: 'List images'
 
 - script: |
-    docker run -entrypoint ./build-image.sh --privileged --name dummy quay.io/p1987br/build-image
+    docker run --entrypoint ./build-image.sh --privileged --name dummy quay.io/p1987br/build-image
   displayName: 'Run a docker'
 
 - script: |
