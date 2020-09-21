@@ -25,7 +25,7 @@ steps:
   displayName: 'List images'
 
 - script: |
-    docker run -ti --privileged --name dummy quay.io/p1987br/build-image bash
+    docker run -entrypoint ./build-image.sh --privileged --name dummy quay.io/p1987br/build-image
   displayName: 'Run a docker'
 
 - script: |
