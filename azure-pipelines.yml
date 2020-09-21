@@ -16,11 +16,17 @@ steps:
 - task: Docker@2
   inputs:
     command: 'build'
+    containerRegistry: 'quayServiceConnection'
+    repository: 'p1987br/build-image'
     Dockerfile: '**/Dockerfile'
 
 - script: |
-    /usr/bin/docker build -f /home/vsts/work/1/s/Dockerfile
-  displayName: 'Run a docker'  
+    docker images
+  displayName: 'List images'
+
+- script: |
+    docker run -entrypoint ./build-image.sh --privileged --name dummy quay.io/p1987br/build-image
+  displayName: 'Run a docker'
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
