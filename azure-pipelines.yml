@@ -19,6 +19,7 @@ steps:
     containerRegistry: 'quayServiceConnection'
     repository: 'p1987br/build-image'
     Dockerfile: '**/Dockerfile'
+    tags: latest
 
 - script: |
     docker images
