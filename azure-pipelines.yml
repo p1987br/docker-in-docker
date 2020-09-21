@@ -17,7 +17,6 @@ steps:
   inputs:
     command: 'build'
     Dockerfile: '**/Dockerfile'
-    arguments: '--privileged'
 
 - script: |
     docker images
