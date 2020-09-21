@@ -13,8 +13,13 @@ steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
+- task: Docker@2
+  inputs:
+    command: 'build'
+    Dockerfile: '**/Dockerfile'
+
 - script: |
-    /usr/bin/docker build -f /home/vsts/work/1/s/Dockerfile --privileged 
+    /usr/bin/docker build -f /home/vsts/work/1/s/Dockerfile
   displayName: 'Run a docker'  
 
 - script: |
