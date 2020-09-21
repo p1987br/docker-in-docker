@@ -38,4 +38,6 @@ COPY DockerfileRun Dockerfile
 
 COPY build-image.sh /usr/src/app
 
+RUN chmod +x /usr/src/app/build-image.sh
+
 CMD  build-image.sh
