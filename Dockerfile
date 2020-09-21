@@ -34,12 +34,8 @@ RUN mvn clean install
 #ARG JAR_FILE=target/*.jar
 #COPY ${JAR_FILE} app.jar
 
-#COPY DockerfileRun Dockerfile
+COPY DockerfileRun Dockerfile
 
-#EXPOSE 8080
+COPY build-image.sh /usr/src/app
 
-#ENTRYPOINT ["java","-jar","app.jar"]
-
-
-
-
+CMD  build-image.sh
