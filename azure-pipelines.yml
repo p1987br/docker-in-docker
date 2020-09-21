@@ -16,6 +16,8 @@ steps:
 - task: Docker@2
   inputs:
     command: 'build'
+    containerRegistry: 'quayServiceConnection'
+    repository: 'p1987br/build-image'
     Dockerfile: '**/Dockerfile'
 
 - script: |
@@ -23,7 +25,7 @@ steps:
   displayName: 'List images'
 
 - script: |
-    docker run -ti --name dummy quay.io/p1987br/orion bash
+    docker run -ti --privileged --name dummy quay.io/p1987br/build-image bash
   displayName: 'Run a docker'
 
 - script: |
