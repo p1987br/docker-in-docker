@@ -15,7 +15,9 @@ steps:
 
 - script: |
     export MAVEN_POM=pom.xml
+    export JAVA_SOURCE=src
     echo $MAVEN_POM
+    echo $JAVA_SOURCE
   displayName: 'List env variables'
 
 - task: Docker@2
@@ -24,7 +26,7 @@ steps:
     containerRegistry: 'quayServiceConnection'
     repository: 'p1987br/build-image'
     Dockerfile: '**/Dockerfile'
-    arguments: '--build-arg MAVEN_POM=$MAVEN_POM'
+    arguments: '--build-arg MAVEN_POM=$MAVEN_POM JAVA_SOURCE=$JAVA_SOURCE'
     tags: latest
 
 - script: |
