@@ -54,7 +54,7 @@ COPY src /usr/src/app/src
 #RUN mvn clean install
 
 #gradle:
-#RUN gradle build
+RUN gradle build
 
 
 CMD ["/bin/bash"]
