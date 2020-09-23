@@ -26,7 +26,7 @@ steps:
     containerRegistry: 'quayServiceConnection'
     repository: 'p1987br/build-image'
     Dockerfile: '**/Dockerfile'
-    arguments: '--build-arg MAVEN_POM=$MAVEN_POM JAVA_SOURCE=$JAVA_SOURCE'
+    arguments: '--build-arg MAVEN_POM=pom.xml'
     tags: latest
 
 - script: |
