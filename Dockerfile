@@ -33,14 +33,17 @@ ENV PATH "$PATH:$GRADLE_HOME/bin"
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
+ARG MAVEN_POM=pom.xml
+ARG JAVA_SOURCE=src
+
 # install maven POM
-COPY pom.xml /usr/src/app
+COPY $MAVEN_POM /usr/src/app
 
 # install gradle build
 COPY build.gradle /usr/src/app
 
 # copy other source files
-COPY src /usr/src/app/src
+COPY $JAVA_SOURCE /usr/src/app/src
 
 #RUN mvn -T 1C install && rm -rf target
 
@@ -51,10 +54,10 @@ COPY src /usr/src/app/src
 #CMD   build-app.sh
 
 #maven:
-#RUN mvn clean install
+RUN mvn clean install
 
 #gradle:
-RUN gradle build
+#RUN gradle build
 
 
 CMD ["/bin/bash"]
