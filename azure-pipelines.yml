@@ -16,7 +16,7 @@ steps:
 - script: |
     export MAVEN_POM=pom.xml
     echo $MAVEN_POM
-  displayName: 'List images'
+  displayName: 'List env variables'
 
 - task: Docker@2
   inputs:
@@ -24,6 +24,7 @@ steps:
     containerRegistry: 'quayServiceConnection'
     repository: 'p1987br/build-image'
     Dockerfile: '**/Dockerfile'
+    arguments: '--build-arg MAVEN_POM=$MAVEN_POM'
     tags: latest
 
 - script: |
