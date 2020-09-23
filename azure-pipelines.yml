@@ -13,6 +13,11 @@ steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
+- script: |
+    export MAVEN_POM=pom.xml
+    echo $MAVEN_POM
+  displayName: 'List images'
+
 - task: Docker@2
   inputs:
     command: 'build'
